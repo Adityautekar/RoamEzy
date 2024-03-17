@@ -35,7 +35,7 @@ const addBooking = asyncHandler(async (req, res) => {
             }
             else {
                 const booking = await Booking.create({
-                    place,user: userInfo.id, checkIn, checkOut, noOfGuests, noOfNights, price
+                    place,user:userInfo.id, checkIn, checkOut, noOfGuests, noOfNights, price
                 })
                 if(booking){
                     res.status(200).json(booking);
@@ -52,7 +52,9 @@ const getBookings = asyncHandler(async (req, res) => {
     const {token} = req.cookies;
     try {
         jwt.verify(token, tokenSecret, {}, async (err, userInfo) => {
-            const s_booking = await Booking.find({user:userInfo.id}).populate('place').populate('user');
+            if(err) throw err;
+            const {id} = userInfo;
+            const s_booking = await Booking.find({user:id}).populate('place').populate('user');
 
             res.json(s_booking);
         })
