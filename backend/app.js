@@ -27,6 +27,13 @@ app.use(express.static("public"));
 
 app.use(cookieParser());
 
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", req.headers.origin);
+    res.header("Access-Control-Allow-Credentials", true);
+    next();
+});
+
+
 app.use("/", userRouter)
 app.use("/", bookingRouter)
 app.use("/", placeRouter)
