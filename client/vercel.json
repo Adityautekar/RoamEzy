@@ -1,5 +1,5 @@
 {
     "buildCommand" : "npm install; vite build",
-    "outputDirectory" : "client/dist",
+    "outputDirectory" : "dist",
     "framework" : "vite"
 }
