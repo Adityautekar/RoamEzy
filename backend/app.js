@@ -19,7 +19,7 @@ app.use(express.json({
 }));
 
 //middleware used to handle url encoding formats, extended supports nested object passing
-// app.use(express.urlencoded({extended:true, limit : "16kb"}));
+app.use(express.urlencoded({extended:true, limit : "16kb"}));
 
 //middle ware used to store public assets like favicon , images , googlefonts etc.
 app.use(express.static("public"));
@@ -27,15 +27,15 @@ app.use(express.static("public"));
 
 app.use(cookieParser());
 
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", req.headers.origin);
-    res.header("Access-Control-Allow-Credentials", true);
-    next();
-});
+// app.use((req, res, next) => {
+//     res.header("Access-Control-Allow-Origin", req.headers.origin);
+//     res.header("Access-Control-Allow-Credentials", true);
+//     next();
+// });
 
 
-app.use("/", userRouter)
-app.use("/", bookingRouter)
-app.use("/", placeRouter)
-app.use("/", reviewRouter)
+app.use("https://roamezy-server.onrender.com/", userRouter)
+app.use("https://roamezy-server.onrender.com/", bookingRouter)
+app.use("https://roamezy-server.onrender.com/", placeRouter)
+app.use("https://roamezy-server.onrender.com/", reviewRouter)
 export {app}
