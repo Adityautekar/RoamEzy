@@ -16,7 +16,7 @@ import PlacePage from "./pages/PlacePage.jsx";
 import PlacesForm from "./components/PlacesForm.jsx";
 import BookingsPage from "./pages/BookingsPage.jsx";
 import WishlistPage from "./components/WishlistPage.jsx";
-import Page404 from "./pages/Page404.jsx";
+// import Page404 from "./pages/Page404.jsx";
 import BookedPlace from "./pages/BookedPlace.jsx";
 import Contact from "./pages/Contact.jsx";
 import UserProfile from "./components/UserProfile.jsx";
