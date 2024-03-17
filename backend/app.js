@@ -34,8 +34,8 @@ app.use(cookieParser());
 // });
 
 
-app.use("https://roamezy-server.onrender.com/", userRouter)
-app.use("https://roamezy-server.onrender.com/", bookingRouter)
-app.use("https://roamezy-server.onrender.com/", placeRouter)
-app.use("https://roamezy-server.onrender.com/", reviewRouter)
+app.use("/", userRouter)
+app.use("/", bookingRouter)
+app.use("/", placeRouter)
+app.use("/", reviewRouter)
 export {app}

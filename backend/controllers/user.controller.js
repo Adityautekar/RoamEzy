@@ -61,7 +61,9 @@ const LoginUser = asyncHandler(async (req, res) => {
             id:userData._id,
             }, tokenSecret, {}, (err, token) => {
             if (err) throw err;
-            res.cookie('token', token).json(userData);
+            res.cookie('token', token, {
+                secure : true
+            }).json(userData);
         });
 
     } else {
