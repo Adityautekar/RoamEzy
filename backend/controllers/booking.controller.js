@@ -1,6 +1,6 @@
 import { Booking } from "../models/Bookings.model.js";
-import { Place } from "../models/Place.model.js";
-import { User } from "../models/User.model.js";
+// import { Place } from "../models/Place.model.js";
+// import { User } from "../models/User.model.js";
 import { ApiError } from "../utils/ApiError.js";
 import { asyncHandler } from "../utils/asyncHandlers.js";
 import jwt from 'jsonwebtoken';
