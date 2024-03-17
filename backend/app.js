@@ -2,7 +2,7 @@ import  express  from "express";
 import cors from "cors"
 import cookieParser from "cookie-parser";
 import userRouter from "./routes/user.routes.js";
-import bookingRouter from "./routes/Booking.routes.js";
+import bookingRouter from "./routes/booking.routes.js";
 import placeRouter from "./routes/place.routes.js";
 import reviewRouter from "./routes/review.routes.js";
 const app = express();
