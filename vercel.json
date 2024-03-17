@@ -1,5 +1,5 @@
 {
-    "buildCommand" : "cd client; npm install; vite build",
+    "buildCommand" : "npm install; vite build",
     "outputDirectory" : "client/dist",
     "framework" : "vite",
     "rewrites" : [
