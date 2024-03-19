@@ -13,6 +13,7 @@ app.use(cors({
     origin: process.env.CORS_ORIGIN,
 }));
 
+
 //middleware to handle incoming json data
 app.use(express.json({
     limit:"16kb"
@@ -26,12 +27,11 @@ app.use(express.static("public"));
 //*app.use('/uploads' , express.static(process.cwd() + '/uploads'));
 
 app.use(cookieParser());
-
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", req.headers.origin);
-    res.header("Access-Control-Allow-Credentials", true);
-    next();
-});
+// app.use((req, res, next) => {
+//     res.header("Access-Control-Allow-Origin", req.headers.origin);
+//     res.header("Access-Control-Allow-Credentials", true);
+//     next();
+// });
 
 
 app.use("/", userRouter)
