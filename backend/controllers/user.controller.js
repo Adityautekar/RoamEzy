@@ -62,7 +62,9 @@ const LoginUser = asyncHandler(async (req, res) => {
             }, tokenSecret, {}, (err, token) => {
             if (err) throw err;
             res.cookie('token', token, {
-                secure : true
+                secure : true,
+                sameSite : 'none',
+                httpOnly: true,
             }).json(userData);
         });
 
