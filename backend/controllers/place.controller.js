@@ -92,13 +92,31 @@ const getAllPlaces = asyncHandler(async(_, res) => {
     res.json( await Place.find());
 })
 
-const userPlaces = asyncHandler((req, res) => {
+const userPlaces = asyncHandler(async (req, res) => {
     const {token} = req.cookies;
+    if (!token) {
+        return res.status(401).json({ message: 'JWT token is missing' });
+    }
     jwt.verify(token, tokenSecret, {}, async (err, userInfo) => {
-        if (err) throw err;
-        const {id} = userInfo;
-        res.json(await Place.find({owner:id}));
-    })
+        if (err) {
+            // If there's an error with the JWT, return an error response
+            return res.status(401).json({ message: 'Invalid JWT token' });
+        }
+        // Extract user ID from the JWT payload
+        const { id } = userInfo;
+
+        try {
+            // Query the database for places owned by the user
+            const userOwnedPlaces = await Place.find({ owner: id });
+
+            // Return the user's places as JSON response
+            res.json(userOwnedPlaces);
+        } catch (error) {
+            // Handle any errors that occur during database query
+            console.error('Error retrieving user places:', error);
+            res.status(500).json({ message: 'Internal Server Error' });
+        }
+    });
 });
 
 const getSinglePlace = asyncHandler( async (req, res) => {
