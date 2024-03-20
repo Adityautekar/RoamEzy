@@ -203,7 +203,12 @@ const updateCredentails = asyncHandler(async (req, res) => {
 })
 
 const logoutUser = asyncHandler( (req, res) => {
-    res.cookie('token', '').json(true);
+    res.cookie('token', '',{
+        expires: new Date(0),
+        httpOnly: true,
+        secure: true, 
+        sameSite: 'none', 
+    }).json(true);
 });
 
 export {

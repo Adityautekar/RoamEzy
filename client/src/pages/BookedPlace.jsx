@@ -53,7 +53,7 @@ function BookedPlace() {
         } 
         const placeid = booking?.place;
         await axios.post("/review", {placeid, review, rating});  
-        setRefresh(true);
+        setRedirect(true)
     }
 
     async function deleteBooking(ev){
@@ -76,9 +76,6 @@ function BookedPlace() {
         return <Navigate to={"/account/bookings"} />
     }
 
-    if(refresh){
-        window.location.reload();
-    }
 
     if(!booking) {
         return "";
