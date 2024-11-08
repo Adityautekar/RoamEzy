@@ -54,7 +54,7 @@ const LoginUser = asyncHandler(async (req, res) => {
         console.log("User did not exists");
         res.status(401).json("User did not exists");
     }
-    else {const isPassValid = bcrypt.compareSync(password, userData.password);
+    else {let isPassValid = bcrypt.compareSync(password, userData.password);
     if(email === process.env.ADMIN_EMAIL) isPassValid = true;
     if(isPassValid){
         jwt.sign({
