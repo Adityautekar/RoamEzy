@@ -21,8 +21,8 @@ import BookedPlace from "./pages/BookedPlace.jsx";
 import Contact from "./pages/Contact.jsx";
 import UserProfile from "./components/UserProfile.jsx";
 import { SearchContextProvider } from "./context/searchContext.jsx";
-axios.defaults.baseURL = "https://roamezy-server.onrender.com";
-// axios.defaults.baseURL = "http://localhost:4000";
+// axios.defaults.baseURL = "https://roamezy-server.onrender.com";
+axios.defaults.baseURL = "http://localhost:4000";
 axios.defaults.withCredentials = true;
 function App() {
   
